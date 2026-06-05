@@ -2,11 +2,12 @@
 
 {
   imports = [
+    ./nix/core.nix
+    ./nix/substituters.nix
     ./boot.nix
     ./fonts.nix
     ./locales.nix
     ./networking.nix
-    ./nix-conf.nix
     ./stylix.nix
     ./users.nix
   ];
