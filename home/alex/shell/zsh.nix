@@ -40,16 +40,6 @@
       alias mount="grc mount"
       alias free="grc free -h"
       alias lsblk="grc lsblk"
-
-      # System:
-      alias rebuild#workstation="sudo nixos-rebuild switch --flake ~/nixos/#workstation"
-      alias testbuild#workstation="sudo nixos-rebuild test --flake ~/nixos/#workstation"
-      alias bootbuild#workstation="sudo nixos-rebuild boot --flake ~/nixos/#workstation"
-      alias hm="home-manager switch --flake ~/nixos/home/alex"
-      alias update="nix flake update ~/nixos"
-      alias check="nix flake check ~/nixos"
-      alias gcroot="sudo nix-collect-garbage -d"
-      alias optimise="sudo nix-store --optimise"
     '';
   };
 }
