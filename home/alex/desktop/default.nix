@@ -1,0 +1,7 @@
+_:
+
+{
+  imports = [
+    ./hypridle.nix
+  ];
+}
