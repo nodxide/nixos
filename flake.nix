@@ -35,12 +35,6 @@
     # (useful for tmpfs-root and declarative persistence setups):
     impermanence.url = "github:nix-community/impermanence";
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # System-wide theming framework
     # (generates colors, fonts, cursors and etc.):
     stylix = {
@@ -122,7 +116,7 @@
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd
 
             # Desktop environment:
-            inputs.hyprland.nixosModules.default
+            # ...
 
             # User environment:
             inputs.home-manager.nixosModules.home-manager
@@ -183,6 +177,7 @@
             ];
 
             shellHook = ''
+              echo ""
               echo "Nix development shell successfully loaded!"
               echo "  Current user: ${vars.username}"
               echo "  Nixpkgs version (state): ${vars.stateVersion}"
@@ -194,9 +189,8 @@
           formatter = pkgs.alejandra;
         };
 
-      # * Flake outputs
       flake = {
-        # Expose vars so other flakes can import them if needed
+        # Expose vars so other flakes can import them if needed:
         inherit vars;
 
         # NixOS system configurations:

@@ -1,21 +1,26 @@
-_:
-
+{ vars, ... }:
 {
   services.openssh = {
     enable = true;
 
     # Security hardening:
     settings = {
-      PermitRootLogin = "no"; # Disable root login
-      PasswordAuthentication = false; # Use keys only
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
       PubkeyAuthentication = true;
       PermitEmptyPasswords = false;
-      AllowUsers = [ "alex" ];
+      AllowUsers = [ "${vars.username}" ];
     };
 
-    # Extra security:
     ports = [ 22 ];
     openFirewall = true;
+
+    # Only put valid sshd_config options here
+    extraConfig = ''
+      # Optional: More security
+      MaxAuthTries 3
+      LoginGraceTime 20
+    '';
   };
 
   # Fail2Ban protection:
@@ -23,4 +28,13 @@ _:
 
   # SSH Agent (for easier key management):
   programs.ssh.startAgent = true;
+
+  # Client-side SSH config:
+  programs.ssh = {
+    extraConfig = ''
+      AddKeysToAgent yes
+      IdentityFile ~/.ssh/id_ed25519
+      ServerAliveInterval 60
+    '';
+  };
 }

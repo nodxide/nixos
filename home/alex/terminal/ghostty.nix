@@ -6,7 +6,6 @@ _:
 
     settings = {
       theme = "Catppuccin Mocha";
-      font-family = "JetBrainsMono Nerd Font";
       font-size = 13;
       window-padding-x = 10;
       window-padding-y = 10;

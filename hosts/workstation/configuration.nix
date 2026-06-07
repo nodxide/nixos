@@ -1,4 +1,4 @@
-{ ... }:
+{ vars, ...}:
 
 {
   imports = [
@@ -8,11 +8,5 @@
     ./hardware-configuration.nix
   ];
 
-  programs.hyprland = {
-    enable = true;
-
-    xwayland.enable = true;
-  };
-
-  system.stateVersion = "26.05";
+  system.stateVersion = vars.stateVersion;
 }
