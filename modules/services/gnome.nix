@@ -2,6 +2,7 @@ _:
 
 {
   services.gnome = {
-    .gcr-ssh-agent.enable = false;
+    # Disable conflicting GNOME SSH agent:
+    gcr-ssh-agent.enable = false;
   };
 }

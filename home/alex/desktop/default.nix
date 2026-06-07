@@ -2,6 +2,7 @@ _:
 
 {
   imports = [
-    ./hypridle.nix
+    ./swayidle.nix
+    ./swaylock.nix
   ];
 }
